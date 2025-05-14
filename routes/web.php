@@ -1,6 +1,7 @@
 <?php
 
 use App\Exports\SantriExport;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Imports\SantriImport;
 use Illuminate\Support\Facades\Route;
@@ -11,7 +12,7 @@ use App\Http\Controllers\KategoriPaketController;
 // Santri route
 Route::resource('santri', SantriController::class)->middleware('auth');
 
-Route::get('/santri/{id}/pdf', [SantriController::class, 'exportPDF'])->name('santri.pdf')->middleware('auth');
+Route::get('/santri/{nis}/pdf', [SantriController::class, 'exportPDF'])->name('santri.pdf')->middleware('auth');
 
 Route::get('santri-export', function () {
     return Excel::download(new SantriExport, 'data-santri.xlsx');
@@ -29,9 +30,7 @@ Route::resource('paket', KategoriPaketController::class)->middleware('auth');
 
 //---
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

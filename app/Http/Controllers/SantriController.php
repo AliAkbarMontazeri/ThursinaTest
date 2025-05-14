@@ -31,11 +31,11 @@ class SantriController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama' => 'required|string|max:255',
-            'nis' => 'required|unique:santris',
-            'kelas' => 'required|string',
-            'asrama' => 'required|string',
-            'no_hp' => 'nullable|string',
+            'nis' => 'required|string|max:255',
+            'nama_santri' => 'required|string|max:255',
+            'alamat' => 'required|string|max:255',
+            'asrama_id' => 'required|string|max:255',
+            'total_paket_diterima' => 'nullable|string',
         ]);
 
         Santri::create($validated);
@@ -55,7 +55,7 @@ class SantriController extends Controller
     {
         $santri = Santri::findOrFail($id);
         $pdf = PDF::loadview('santri.pdf', compact('santri'));
-        return $pdf->download('santri-' . $santri->id . '.pdf');
+        return $pdf->download('santri-' . $santri->nis . '.pdf');
     }
 
     /**
@@ -73,7 +73,7 @@ class SantriController extends Controller
     {
         $validated = $request->validate([
             'nama' => 'required|string|max:255',
-            'nis' => 'required|unique:santris,nis,' . $santri->id,
+            'nis' => 'required|unique:santris,nis,' . $santri->nis,
             'kelas' => 'required|string',
             'asrama' => 'required|string',
             'no_hp' => 'nullable|string',

@@ -31,28 +31,28 @@
                 <table class="table-auto w-full border">
                     <thead>
                         <tr class="bg-gray-200">
-                            <th class="px-4 py-2 border">Nama</th>
                             <th class="px-4 py-2 border">NIS</th>
-                            <th class="px-4 py-2 border">Kelas</th>
-                            <th class="px-4 py-2 border">Asrama</th>
-                            <th class="px-4 py-2 border">No HP</th>
+                            <th class="px-4 py-2 border">Nama</th>
+                            <th class="px-4 py-2 border">Alamat</th>
+                            <th class="px-4 py-2 border">Asrama Id</th>
+                            <th class="px-4 py-2 border">Total Paket</th>
                             <th class="px-4 py-2 border">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($santris as $santri)
                             <tr>
-                                <td class="border px-4 py-2">{{ $santri->nama }}</td>
                                 <td class="border px-4 py-2">{{ $santri->nis }}</td>
-                                <td class="border px-4 py-2">{{ $santri->kelas }}</td>
-                                <td class="border px-4 py-2">{{ $santri->asrama }}</td>
-                                <td class="border px-4 py-2">{{ $santri->no_hp }}</td>
+                                <td class="border px-4 py-2">{{ $santri->nama_santri }}</td>
+                                <td class="border px-4 py-2">{{ $santri->alamat }}</td>
+                                <td class="border px-4 py-2">{{ $santri->asrama_id }}</td>
+                                <td class="border px-4 py-2">{{ $santri->total_paket_diterima }}</td>
                                 <td class="border px-4 py-2">
-                                    <a href="{{ route('santri.show', $santri->id) }}"
+                                    <a href="{{ route('santri.show', $santri->nis) }}"
                                         class="text-green-500 hover:text-green-700 font-semibold mr-2">Detail</a>
-                                    <a href="{{ route('santri.edit', $santri->id) }}"
+                                    <a href="{{ route('santri.edit', $santri->nis) }}"
                                         class="text-blue-500 hover:text-blue-700 font-semibold">Edit</a>
-                                    <form action="{{ route('santri.destroy', $santri->id) }}" method="POST"
+                                    <form action="{{ route('santri.destroy', $santri->nis) }}" method="POST"
                                         onsubmit="return confirm('Yakin ingin menghapus santri ini?')"
                                         style="display:inline;">
                                         @csrf

@@ -13,28 +13,28 @@
                     @csrf
 
                     <div class="mb-4">
-                        <label class="block font-bold mb-2">Nama</label>
-                        <input type="text" name="nama" class="w-full border rounded px-3 py-2" required>
-                    </div>
-
-                    <div class="mb-4">
                         <label class="block font-bold mb-2">NIS</label>
                         <input type="text" name="nis" class="w-full border rounded px-3 py-2" required>
                     </div>
 
                     <div class="mb-4">
-                        <label class="block font-bold mb-2">Kelas</label>
-                        <input type="text" name="kelas" class="w-full border rounded px-3 py-2" required>
+                        <label class="block font-bold mb-2">Nama</label>
+                        <input type="text" name="nama_santri" class="w-full border rounded px-3 py-2" required>
                     </div>
 
                     <div class="mb-4">
-                        <label class="block font-bold mb-2">Asrama</label>
-                        <input type="text" name="asrama" class="w-full border rounded px-3 py-2" required>
+                        <label class="block font-bold mb-2">Alamat</label>
+                        <input type="text" name="alamat" class="w-full border rounded px-3 py-2" required>
                     </div>
 
                     <div class="mb-4">
-                        <label class="block font-bold mb-2">No HP</label>
-                        <input type="text" name="no_hp" class="w-full border rounded px-3 py-2">
+                        <label class="block font-bold mb-2">Asrama Id</label>
+                        <input type="text" name="asrama_id" class="w-full border rounded px-3 py-2" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block font-bold mb-2">Total Paket Diterima</label>
+                        <input type="text" name="total_paket_diterima" class="w-full border rounded px-3 py-2" required>
                     </div>
 
                     <button type="submit"

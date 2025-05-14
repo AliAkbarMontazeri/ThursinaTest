@@ -12,11 +12,11 @@
 
 <body>
     <h2>Detail Santri</h2>
-    <p><strong>Nama:</strong> {{ $santri->nama }}</p>
     <p><strong>NIS:</strong> {{ $santri->nis }}</p>
-    <p><strong>Kelas:</strong> {{ $santri->kelas }}</p>
-    <p><strong>Asrama:</strong> {{ $santri->asrama }}</p>
-    <p><strong>No HP:</strong> {{ $santri->no_hp }}</p>
+    <p><strong>Nama:</strong> {{ $santri->nama_santri }}</p>
+    <p><strong>Alamat:</strong> {{ $santri->alamat }}</p>
+    <p><strong>Asrama Id:</strong> {{ $santri->asrama_id }}</p>
+    <p><strong>Total Paket:</strong> {{ $santri->total_paket_diterima }}</p>
 </body>
 
 </html>
