@@ -1,4 +1,4 @@
-@extends('layouts.table')
+@extends('layouts.app')
 
 @section('title', 'Data Santri')
 
