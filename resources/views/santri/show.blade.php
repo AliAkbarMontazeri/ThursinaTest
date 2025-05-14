@@ -13,7 +13,7 @@
             <p><strong>Asrama Id:</strong> {{ $santri->asrama_id }}</p>
             <p><strong>Paket Diterima:</strong> {{ $santri->total_paket_diterima }}</p>
 
-            <a href="{{ route('santri.pdf', $santri->nis) }}"
+            <a href="{{ route('santri.pdf', $santri) }}"
                 class="mt-4 inline-block bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">
                 Download PDF
             </a>

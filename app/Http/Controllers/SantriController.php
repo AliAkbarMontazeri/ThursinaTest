@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Santri;
-use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class SantriController extends Controller
@@ -51,10 +51,10 @@ class SantriController extends Controller
         return view('santri.show', compact('santri'));
     }
 
-    public function exportPDF($id)
+    public function exportPDF($nis)
     {
-        $santri = Santri::findOrFail($id);
-        $pdf = PDF::loadview('santri.pdf', compact('santri'));
+        $santri = Santri::findOrFail($nis);
+        $pdf = Pdf::loadView('santri.pdf', compact('santri'));
         return $pdf->download('santri-' . $santri->nis . '.pdf');
     }
 

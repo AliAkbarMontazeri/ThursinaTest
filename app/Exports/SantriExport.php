@@ -20,22 +20,22 @@ class SantriExport implements FromCollection, WithHeadings, WithMapping
     public function map($santri): array
     {
         return [
-            $santri->nama,
             $santri->nis,
-            $santri->kelas,
-            $santri->asrama,
-            $santri->no_hp,
+            $santri->nama_santri,
+            $santri->alamat,
+            $santri->asrama_id,
+            $santri->total_paket_diterima,
         ];
     }
 
     public function headings(): array
     {
         return [
-            'Nama',
             'NIS',
-            'Kelas',
-            'Asrama',
-            'No HP',
+            'Nama',
+            'Alamat',
+            'Asrama Id',
+            'Total Paket Diterima',
         ];
     }
 }

@@ -21,11 +21,11 @@ class SantriImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new Santri([
-            'nama' => $row['nama'],
             'nis' => $row['nis'],
-            'kelas' => $row['kelas'],
-            'asrama' => $row['asrama'],
-            'no_hp' => $row['no_hp'],
+            'nama_santri' => $row['nama_santri'],
+            'alamat' => $row['alamat'],
+            'asrama_id' => $row['asrama_id'],
+            'total_paket_diterima' => $row['total_paket_diterima'],
         ]);
     }
 }
