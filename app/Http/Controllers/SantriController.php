@@ -72,11 +72,11 @@ class SantriController extends Controller
     public function update(Request $request, Santri $santri)
     {
         $validated = $request->validate([
-            'nama' => 'required|string|max:255',
-            'nis' => 'required|unique:santris,nis,' . $santri->nis,
-            'kelas' => 'required|string',
-            'asrama' => 'required|string',
-            'no_hp' => 'nullable|string',
+            'nis' => 'required|string|max:255',
+            'nama_santri' => 'required|string|max:255',
+            'alamat' => 'required|string|max:255',
+            'asrama_id' => 'required|string|max:255',
+            'total_paket_diterima' => 'nullable|string',
         ]);
 
         $santri->update($validated);
