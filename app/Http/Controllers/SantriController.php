@@ -1,0 +1,96 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Santri;
+use Barryvdh\DomPDF\PDF;
+use Illuminate\Http\Request;
+
+class SantriController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $santris = Santri::all();
+        return view('santri.index', compact('santris'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('santri.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'nama' => 'required|string|max:255',
+            'nis' => 'required|unique:santris',
+            'kelas' => 'required|string',
+            'asrama' => 'required|string',
+            'no_hp' => 'nullable|string',
+        ]);
+
+        Santri::create($validated);
+
+        return redirect()->route('santri.index')->with('success', 'Data Santri berhasil ditambahkan');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Santri $santri)
+    {
+        return view('santri.show', compact('santri'));
+    }
+
+    public function exportPDF($id)
+    {
+        $santri = Santri::findOrFail($id);
+        $pdf = PDF::loadview('santri.pdf', compact('santri'));
+        return $pdf->download('santri-' . $santri->id . '.pdf');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Santri $santri)
+    {
+        return view('santri.edit', compact('santri'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Santri $santri)
+    {
+        $validated = $request->validate([
+            'nama' => 'required|string|max:255',
+            'nis' => 'required|unique:santris,nis,' . $santri->id,
+            'kelas' => 'required|string',
+            'asrama' => 'required|string',
+            'no_hp' => 'nullable|string',
+        ]);
+
+        $santri->update($validated);
+
+        return redirect()->route('santri.index')->with('success', 'Data santri berhasil diubah.');
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Santri $santri)
+    {
+        $santri->delete();
+        return redirect()->route('santri.index')->with('success', 'Santri berhasil dihapus!');
+    }
+}
