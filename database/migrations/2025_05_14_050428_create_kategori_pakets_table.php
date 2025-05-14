@@ -12,14 +12,7 @@ return new class extends Migration {
     {
         Schema::create('kategori_pakets', function (Blueprint $table) {
             $table->id();// ID Paket
-            $table->string('nama_paket', 100);
-            $table->date('tanggal_diterima');
-            $table->foreignId('kategori_paket_id')->constrained('kategori_pakets')->onDelete('cascade');
-            $table->string('santri_nis', 100);
-            $table->foreign('santri_nis')->references('nis')->on('santris')->onDelete('cascade');
-            $table->string('pengirim_paket', 100);
-            $table->string('isi_disita', 200)->nullable();
-            $table->string('status', 50); // Diambil / Belum Diambil
+            $table->string('nama_kategori', 100);
             $table->timestamps();
         });
     }

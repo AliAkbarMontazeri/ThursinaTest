@@ -2,12 +2,12 @@
 
 use App\Exports\SantriExport;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaketController;
 use App\Http\Controllers\ProfileController;
 use App\Imports\SantriImport;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SantriController;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Http\Controllers\KategoriPaketController;
 
 // Santri route
 Route::resource('santri', SantriController::class)->middleware('auth');
@@ -26,7 +26,7 @@ Route::post('santri-import', function (\Illuminate\Http\Request $request) {
 // ---
 
 // Paket route
-Route::resource('paket', KategoriPaketController::class)->middleware('auth');
+Route::resource('paket', PaketController::class)->middleware('auth');
 
 //---
 

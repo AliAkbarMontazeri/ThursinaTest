@@ -25,7 +25,7 @@ class Santri extends Model
 
     public function paket()
     {
-        return $this->hasMany(KategoriPaket::class, 'santri_nis', 'nis');
+        return $this->hasMany(Paket::class, 'santri_nis', 'nis');
     }
 
     public function getRouteKeyName()
